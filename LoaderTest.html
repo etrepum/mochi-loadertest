@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+ <title>LoaderTest</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <script type="text/javascript" src="swfobject.js"></script>
+ <script type="text/javascript">
+  function test(method) {
+    url = document.getElementById("url").value;
+    swf = "LoaderTest.swf?method=" + escape(method) + "&url=" + escape(url);
+    swfobject.embedSWF(swf, "loadArea", "800", "600", "9.0.0");
+  }
+ </script>
+</head>
+
+<body>
+ <form>
+  <table>
+   <tr>
+    <td>Game URL</td>
+    <td><input id="url" type="text" name="url" size="80" value="http://games.mochiads.com/c/g/bloons/bloons.swf" /></td>
+   </tr>
+   <tr>
+    <td>Load method</td>
+    <td>
+     <input type="submit" value="Loader:load()" onclick="test('load'); return false" />
+     <input type="submit" value="Loader:loadBytes()" onclick="test('loadBytes'); return false" />
+    </td>
+   </tr>
+  </table>
+ </form>
+
+ <hr />
+
+ <div id="loadArea">
+  <p>[SWF will go here]</p>
+ </div>
+</body>
+
+</html>
